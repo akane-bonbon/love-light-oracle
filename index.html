@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f7f1e8">
+  <title>LOVE ＆ LIGHT｜今日の1枚</title>
+  <style>
+    :root{color-scheme:light;--ink:#403938;--muted:#817472;--rose:#b87979;--rose-dark:#925d62;--cream:#fbf8f2;--line:#eadfd6;--gold:#c4a574}
+    *{box-sizing:border-box} body{margin:0;min-height:100vh;color:var(--ink);font-family:"Yu Gothic", "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;background:radial-gradient(ellipse at 50% 0,#fffdf9 0,#f7f1e8 68%,#f0e7df 100%)}
+    button{font:inherit}.shell{width:min(100% - 32px,960px);margin:auto;padding:28px 0 44px}.top{display:flex;justify-content:flex-end;align-items:center;gap:12px;min-height:36px}.top button,.link-button{border:0;background:none;color:var(--muted);text-decoration:underline;text-underline-offset:3px;cursor:pointer;font-size:.86rem}.brand{text-align:center;margin:12px 0 26px}.brand small{display:block;color:var(--gold);font-size:.75rem;letter-spacing:.28em;margin-bottom:6px}.brand h1{font-family:Georgia,"Times New Roman",serif;font-weight:400;font-size:clamp(2.35rem,8vw,4.3rem);letter-spacing:.09em;margin:0;color:#765b5b}.brand p{margin:7px 0 0;color:var(--muted);font-size:.94rem;letter-spacing:.08em}
+    .panel{margin:auto;max-width:760px;padding:clamp(20px,5vw,42px);border:1px solid #eee2d8;border-radius:28px;background:rgba(255,253,249,.78);box-shadow:0 18px 55px #77564d12;text-align:center}.intro{font-size:1.04rem;line-height:1.8;color:var(--muted);margin:0 auto 20px;max-width:34em}.back-card{width:clamp(155px,43vw,218px);aspect-ratio:.69;margin:18px auto 26px;border:1px solid #c6a77e;border-radius:15px;padding:8px;background:linear-gradient(145deg,#f9edda,#e6cfab);box-shadow:0 12px 24px #70584a26;position:relative}.back-image{width:100%;height:100%;object-fit:cover;border-radius:10px;display:block}.back-inner{height:100%;border:1px solid #b79a73;border-radius:10px;display:grid;place-items:center;overflow:hidden;background:radial-gradient(ellipse,#fff9ee 0,#f4e5ce 70%)}.back-inner:before,.back-inner:after{content:"✧";position:absolute;color:#ad8a5d;font-size:2rem}.back-inner:before{top:18px;left:20px}.back-inner:after{bottom:18px;right:20px}.back-mark{font-family:Georgia,serif;color:#987750;font-size:2.25rem}.back-caption{display:block;margin-top:8px;font-size:.55rem;letter-spacing:.21em;color:#9a805e}.choices{display:flex;justify-content:center;gap:12px;flex-wrap:wrap}.choice{border:1px solid #cfaaa4;border-radius:999px;padding:13px 21px;background:#fffaf7;color:#754e50;cursor:pointer;transition:.18s;min-width:175px}.choice:hover,.choice:focus-visible{background:#b87979;color:white;transform:translateY(-2px);outline:none}.choice.primary{background:#b87979;color:#fff;border-color:#b87979}.choice.primary:hover{background:#985f64}.hint{font-size:.82rem;color:#988986;margin:18px 0 0}.reading{display:none}.reading.active{display:block}.question-label{color:var(--rose-dark);font-size:.88rem;letter-spacing:.08em;margin:0 0 12px}.result-card{width:min(100%,360px);margin:14px auto 22px;aspect-ratio:auto;background:#fff;border:1px solid var(--line);border-radius:18px;overflow:hidden;box-shadow:0 12px 34px #735c4d18;text-align:left}.result-card img{width:100%;height:auto;aspect-ratio:2/3;object-fit:contain;background:#f0e8df;display:block}.result-copy{padding:18px 20px 22px}.result-copy h2{font-family:Georgia,serif;font-weight:400;font-size:1.55rem;text-align:center;margin:0 0 10px;color:#745655}.keywords{text-align:center;color:#a17c66;font-size:.86rem;margin:0 0 15px;line-height:1.7}.message{border-top:1px solid var(--line);padding-top:14px;line-height:1.9;white-space:pre-wrap;font-size:.97rem}.result-type{display:inline-block;margin:0 0 8px;color:#9b7775;font-size:.76rem;letter-spacing:.1em}.result-actions{display:flex;justify-content:center;gap:10px;flex-wrap:wrap}.choice.secondary{background:transparent;border-color:#d8c8be;color:#776b66}.foot{display:flex;justify-content:center;gap:18px;align-items:center;flex-wrap:wrap;margin-top:22px}.status{font-size:.78rem;color:#a09790}.branch{display:none;margin:18px auto 0;max-width:600px}.branch.active{display:block}.branch p{color:var(--muted);margin:0 0 13px}.branch .choice{min-width:150px}.empty{color:var(--muted);line-height:1.8;padding:25px 8px}.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+    @media(max-width:600px){.shell{width:min(100% - 20px,960px);padding:14px 0 28px}.top{justify-content:center}.brand{margin:10px 0 20px}.panel{border-radius:22px;padding:22px 16px}.choices{display:grid;grid-template-columns:1fr;max-width:340px;margin:auto}.choice{width:100%;min-height:48px}.result-actions{display:grid;grid-template-columns:1fr;max-width:340px;margin:auto}}
+  </style>
+</head>
+<body>
+  <main class="shell">
+    <div class="top"><button id="loadButton" type="button">編集したCSVを読み込む</button><input class="sr-only" id="fileInput" type="file" accept=".csv,text/csv"></div>
+    <header class="brand"><small>ORACLE CARD</small><h1>LOVE ＆ LIGHT</h1><p>今日のあなたに、必要なメッセージを。</p></header>
+    <section class="panel" aria-live="polite">
+      <div id="home">
+        <p class="intro">心を落ち着けて、知りたいことを選んでください。<br>カードが1枚、今のあなたに届きます。</p>
+        <div class="back-card" aria-label="共通のカード裏面"><img class="back-image" src="images/裏面 共通.jpg" alt="LOVE AND LIGHT 共通カード裏面"></div>
+        <div class="choices"><button class="choice primary" data-path="current">現在の状態を知りたい</button><button class="choice" data-path="advice">アドバイスをお願い</button></div>
+        <p class="hint">何度でも引き直せます。答えを決めつけず、気づきのきっかけとしてお楽しみください。</p>
+      </div>
+      <div class="reading" id="reading"><p class="question-label" id="questionLabel"></p><div id="result"></div><div class="result-actions"><button class="choice primary" id="drawAgain">もう一枚引く</button><button class="choice secondary" id="goHome">質問を選び直す</button></div></div>
+    </section>
+    <div class="foot"><span class="status" id="status"></span><a class="link-button" href="カード一覧.csv" download>カード一覧テンプレート</a></div>
+  </main>
+<script src="cards-data.js"></script>
+<script>
+  // CSVを差し替えると、コードを書かずにカードを編集できます。
+  const sampleCards = window.initialCards || [
+    {id:"01",name:"ヴァイブスあげてこ",keywords:"軽やかさ・楽しむ",image:"",current:"今は、正しさよりも心が弾むほうへ意識を向けるとき。小さな楽しみが、次の流れを連れてきます。",advice:"好きな音楽をかける、少し遠回りする。気分が上がる小さな行動を、今日ひとつ選んでみて。"},
+    {id:"02",name:"ひと呼吸",keywords:"休息・余白",image:"",current:"少し急ぎすぎているのかもしれません。立ち止まる時間も、前へ進むための大切な一部です。",advice:"答えを急がず、深呼吸を三回。今日はひとつだけ、後回しにしても大丈夫なことを手放して。"},
+    {id:"03",name:"小さな一歩",keywords:"始まり・勇気",image:"",current:"心の中では、もう次の一歩に気づいているようです。完璧な準備を待たなくても大丈夫。",advice:"いちばん小さく始められることを選んで、5分だけやってみましょう。続きはそのあとで決めて。"},
+    {id:"04",name:"受け取る",keywords:"信頼・豊かさ",image:"",current:"与えることに意識が向きすぎていませんか。助けや好意を受け取る余白も育っています。",advice:"誰かの言葉や親切に、まず『ありがとう』と返してみて。受け取ることを自分に許して。"},
+    {id:"05",name:"自分のペース",keywords:"比較を手放す・安心",image:"",current:"周りの速さが気になっても、あなたにはあなたの自然なリズムがあります。",advice:"他の人との比較をひとつ閉じて、自分の昨日からの変化をひとつ見つけてみましょう。"},
+    {id:"06",name:"心の声",keywords:"直感・静けさ",image:"",current:"いろいろな意見の中で、自分の本音が少し聞こえにくくなっているようです。",advice:"静かな時間を少し作り、『本当はどうしたい？』と自分に問いかけてみて。すぐ答えが出なくても大丈夫。"},
+    {id:"07",name:"めぐりあい",keywords:"つながり・偶然",image:"",current:"人とのつながりに、新しい気づきが隠れているかもしれません。何気ない会話にも目を向けて。",advice:"気になっていた人に短い連絡をしてみるか、いつもと違う場所に立ち寄ってみましょう。"},
+    {id:"08",name:"光を見つける",keywords:"希望・視点",image:"",current:"すべてがはっきり見えなくても、進むための小さな光はすでにあります。",advice:"今日うまくいったことをひとつ書き留めて。小さな手応えを、次の道しるべにしましょう。"}
+  ];
+  let cards = sampleCards.slice(), lastPath = "current", used = [], lastCard = null, lastQuestion = "";
+  const home=document.querySelector('#home'), reading=document.querySelector('#reading'), result=document.querySelector('#result'), status=document.querySelector('#status');
+  const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+  function draw(path, question){
+    const valid=cards.filter(c=>c.name && c.name.trim() && (!c.status || c.status==='済') && (path==='current'?c.current:c.advice));
+    if(!valid.length){alert('この質問で引けるカードがありません。カード一覧の文言を確認してください。');return}
+    if(used.length>=valid.length)used=[];
+    const available=valid.filter(c=>!used.includes(c.id)); let card=available[Math.floor(Math.random()*available.length)];
+    if(valid.length>1 && card.id===lastCard?.id) card=available.find(c=>c.id!==lastCard.id)||card;
+    used.push(card.id);lastCard=card;lastPath=path;lastQuestion=question||(path==='current'?'現在の状態を知りたい':'アドバイスをお願い');
+    const text=path==='current'?card.current:card.advice;
+    const imageId=String(card.id||'').replace(/\D/g,'').padStart(2,'0'), fallback=`images/${imageId}.jpg`;
+    const imagePath=card.image&&/\.(jpe?g|png|webp)$/i.test(card.image)?card.image:fallback;
+    const img=`<img src="${esc(imagePath)}" alt="${esc(card.name)}のカード画像" onerror="if(!this.dataset.retry){this.dataset.retry='1';this.src='${fallback}'}else{this.style.display='none'}">`;
+    result.innerHTML=`<article class="result-card">${img}<div class="result-copy"><span class="result-type">${path==='current'?'CURRENT｜現在の状態':'ADVICE｜アドバイス'}</span><h2>${esc(card.name)}</h2><p class="keywords">${esc(card.keywords)}</p><div class="message">${esc(text)}</div></div></article>`;
+    document.querySelector('#questionLabel').textContent=lastQuestion;home.hidden=true;reading.classList.add('active');
+  }
+  document.querySelectorAll('[data-path]').forEach(b=>b.addEventListener('click',()=>draw(b.dataset.path,b.dataset.question)));
+  document.querySelector('#drawAgain').onclick=()=>draw(lastPath,lastQuestion);
+  document.querySelector('#goHome').onclick=()=>{reading.classList.remove('active');home.hidden=false};
+  document.querySelector('#loadButton').onclick=()=>document.querySelector('#fileInput').click();
+  document.querySelector('#fileInput').onchange=async e=>{const f=e.target.files[0];if(!f)return;try{cards=parseCSV(await f.text());used=[];const usable=cards.filter(c=>c.name&&c.name.trim()&&(!c.status||c.status==='済')&&c.current&&c.advice).length;status.textContent=`「${f.name}」を読み込みました（両方の文が揃った利用可能カード ${usable}枚）`;}catch(err){alert('CSVを読み込めませんでした。テンプレートの列名と形式をご確認ください。')}};
+  function parseCSV(text){
+    const rows=[];let row=[],cell='',quoted=false;
+    for(let i=0;i<text.length;i++){const c=text[i];if(quoted){if(c==='"'&&text[i+1]==='"'){cell+='"';i++}else if(c==='"')quoted=false;else cell+=c}else if(c==='"')quoted=true;else if(c===','){row.push(cell);cell=''}else if(c==='\n'){row.push(cell.replace(/\r$/,''));rows.push(row);row=[];cell=''}else cell+=c}
+    if(cell||row.length){row.push(cell.replace(/\r$/,''));rows.push(row)}
+    const aliasMap={id:['id','カードid','cardid'],name:['name','カード名','cardname'],keywords:['keywords','keyword','キーワード'],image:['image','画像','画像ファイル'],current:['current','現状','現在の状態'],advice:['advice','アドバイス'],status:['status','制作状況']};
+    const normalizeHeader=value=>{const raw=value.trim().replace(/^\uFEFF/,'').split('※')[0].trim().toLowerCase();const compact=raw.replace(/[\s_]+/g,'');for(const [key,names] of Object.entries(aliasMap)){if(names.some(name=>name.toLowerCase().replace(/[\s_]+/g,'')===compact))return key}return compact};
+    const headerIndex=rows.findIndex(candidate=>{const found=candidate.map(normalizeHeader);return found.includes('id')&&found.includes('name')&&found.includes('keywords')&&(found.includes('current')||found.includes('advice'))});
+    if(headerIndex<0)throw new Error('カード一覧の見出し行が見つかりません');
+    const keys=rows[headerIndex].map(normalizeHeader);
+    return rows.slice(headerIndex+1).filter(r=>r.some(v=>v.trim())).map(r=>Object.fromEntries(keys.map((k,i)=>[k,(r[i]||'').trim()])));
+  }
+  const usableCards=cards.filter(c=>c.name&&c.name.trim()&&(!c.status||c.status==='済')&&c.current&&c.advice).length;
+  status.textContent=`利用可能カード ${usableCards}枚`;
+  async function loadCSVFromAppFolder(){
+    if(location.protocol==='file:')return;
+    document.querySelector('#loadButton').hidden=true;
+    try{
+      const response=await fetch('./カード一覧.csv',{cache:'no-store'});
+      if(!response.ok)throw new Error('CSVを取得できません');
+      cards=parseCSV(await response.text());used=[];
+      const count=cards.filter(c=>c.name&&c.name.trim()&&(!c.status||c.status==='済')&&c.current&&c.advice).length;
+      status.textContent=`カード一覧.csvを読み込みました｜利用可能カード ${count}枚`;
+    }catch(error){status.textContent='カード一覧.csvを読み込めませんでした。アプリの起動ファイルから開いてください。'}
+  }
+  loadCSVFromAppFolder();
+</script>
+</body>
+</html>
